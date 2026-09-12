@@ -1,30 +1,35 @@
-name: Deploy to GitHub Pages
+name: Build and Deploy
 
 on:
   push:
     branches: [ main ]
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
     
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-
+    - uses: actions/checkout@v3
+    
     - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
         node-version: '18'
-
-    - name: Install dependencies
-      run: npm install
-
-    - name: Build the app
-      run: npm run build
-
-    - name: Deploy with gh-pages
+    
+    - name: Install and Build
       run: |
-        git config --global user.email "deploy@github.com"
-        git config --global user.name "GitHub Actions"
-        npx gh-pages -d dist -t
+        npm install
+        npm run build
+    
+    - name: Commit dist folder
+      run: |
+        git add dist -f
+        git config --local user.name "actions-user"
+        git config --local user.email "action@github.com"
+        git commit -m "Build dist folder" || echo "No changes to commit"
+    
+    - name: Push
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: main
