@@ -1,0 +1,112 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-purple-50: #EEEDFE;
+  --color-purple-100: #CECBF6;
+  --color-purple-200: #AFA9EC;
+  --color-purple-400: #7F77DD;
+  --color-purple-600: #534AB7;
+  --color-purple-800: #3C3489;
+  --color-purple-900: #26215C;
+
+  --color-coral-50: #FAECE7;
+  --color-coral-100: #F5C4B3;
+  --color-coral-200: #F0997B;
+  --color-coral-400: #D85A30;
+  --color-coral-600: #993C1D;
+  --color-coral-800: #712B13;
+  --color-coral-900: #4A1B0C;
+
+  --color-pink-50: #FBEAF0;
+  --color-pink-100: #F4C0D1;
+  --color-pink-200: #ED93B1;
+  --color-pink-400: #D4537E;
+  --color-pink-600: #993556;
+  --color-pink-800: #72243E;
+  --color-pink-900: #4B1528;
+
+  --color-gray-50: #F1EFE8;
+  --color-gray-100: #D3D1C7;
+  --color-gray-200: #B4B2A9;
+  --color-gray-400: #888780;
+  --color-gray-600: #5F5E5A;
+  --color-gray-800: #444441;
+  --color-gray-900: #2C2C2A;
+
+  --text-primary: #2C2C2A;
+  --text-secondary: #5F5E5A;
+  --text-muted: #888780;
+  --border: rgba(0, 0, 0, 0.1);
+  --border-strong: rgba(0, 0, 0, 0.2);
+  --bg-page: #ffffff;
+  --bg-surface: #F1EFE8;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-primary: #F1EFE8;
+    --text-secondary: #B4B2A9;
+    --text-muted: #888780;
+    --border: rgba(255, 255, 255, 0.1);
+    --border-strong: rgba(255, 255, 255, 0.2);
+    --bg-page: #2C2C2A;
+    --bg-surface: #444441;
+  }
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.6;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+h1 {
+  font-size: 28px;
+}
+
+h2 {
+  font-size: 18px;
+}
+
+h3 {
+  font-size: 16px;
+}
+
+p {
+  margin: 0.5rem 0;
+}
+
+* {
+  transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+}
+
+button, a {
+  transition: all 0.2s ease;
+}
